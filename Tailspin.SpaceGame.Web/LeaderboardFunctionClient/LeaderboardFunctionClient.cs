@@ -23,7 +23,8 @@ namespace TailSpin.SpaceGame.Web
             {
                 string json = await webClient.DownloadStringTaskAsync($"{this._functionUrl}?page={page}&pageSize={pageSize}&mode={mode}&region={region}");
                 // string json = await webClient.DownloadStringTaskAsync($"{this._functionUrl}?page={page}&pageSize={pageSize}&mode={mode}&region={region}");
-                return JsonSerializer.Deserialize<LeaderboardResponse>(json)!;
+                LeaderboardResponse leaderboardResponse = JsonSerializer.Deserialize<LeaderboardResponse>(json);
+                return leaderboardResponse;
                 // return JsonConvert.DeserializeObject<LeaderboardResponse>(json);
             }
         }
