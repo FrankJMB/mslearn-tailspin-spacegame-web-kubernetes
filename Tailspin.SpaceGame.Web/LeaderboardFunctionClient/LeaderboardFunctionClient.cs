@@ -21,10 +21,11 @@ namespace TailSpin.SpaceGame.Web
         {
             using (WebClient webClient = new WebClient())
             {
-                string json = webClient.DownloadStringTaskAsync($"{this._functionUrl}?page={page}&pageSize={pageSize}&mode={mode}&region={region}");
-                // string json = await webClient.DownloadStringTaskAsync($"{this._functionUrl}?page={page}&pageSize={pageSize}&mode={mode}&region={region}");
-                LeaderboardResponse? leaderboardResponse = await JsonSerializer.DeserializeAsync<LeaderboardResponse>(json);
-                return leaderboardResponse;
+                string json = await webClient.DownloadStringTaskAsync($"{this._functionUrl}?page={page}&pageSize={pageSize}&mode={mode}&region={region}");
+                return JsonSerializer.Deserialize<LeaderboardResponse>(json, new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                });
                 // return JsonConvert.DeserializeObject<LeaderboardResponse>(json);
             }
         }
