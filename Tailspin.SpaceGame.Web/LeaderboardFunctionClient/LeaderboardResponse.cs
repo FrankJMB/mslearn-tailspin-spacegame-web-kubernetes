@@ -25,7 +25,7 @@ namespace TailSpin.SpaceGame.Web
         // The scores to display in the view.
         [JsonPropertyName("scores")]
         public IEnumerable<ScoreProfile> Scores { get; set; }
-        
+
         // The total number of results for the selected game mode and region in the view.
         [JsonPropertyName("totalResults")]
         public int TotalResults { get; set; }
