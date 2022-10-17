@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-// using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +26,6 @@ namespace TailSpin.SpaceGame.Web
                     IncludeFields = true,
                     PropertyNameCaseInsensitive = true
                 });
-                //   return JsonConvert.DeserializeObject<LeaderboardResponse>(json);
             }
         }
     }
